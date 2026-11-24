@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fathimath Shibla – Full-Stack Developer (MERN)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2ef;--ink:#12332b;--muted:#4f6a62;--line:#c7d4ce;--accent:#2a4fe0;--chip:#dfe8e3;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c18;--ink:#e6f0ec;--muted:#9bb3aa;--line:#2a3f38;--accent:#7f9bff;--chip:#1a2d27;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1c18;--ink:#e6f0ec;--muted:#9bb3aa;--line:#2a3f38;--accent:#7f9bff;--chip:#1a2d27;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 "Instrument Sans",system-ui,sans-serif}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
+.logo{font:800 1.25rem "Bricolage Grotesque",sans-serif;text-decoration:none}
+nav a{margin-left:1.5rem;text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--accent)}
+.hero{padding:5rem 0 4.5rem;border-bottom:1px solid var(--line)}
+.hero h1{font:800 clamp(2.8rem,9vw,6.5rem)/0.98 "Bricolage Grotesque",sans-serif;letter-spacing:-0.03em;margin:0 0 1.5rem;max-width:14ch}
+.hero p{max-width:34rem;color:var(--muted);font-size:1.2rem;margin:0 0 2rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:.5rem;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+section{padding:4rem 0;border-bottom:1px solid var(--line)}
+h2{font:700 1.9rem "Bricolage Grotesque",sans-serif;margin:0 0 2rem;letter-spacing:-0.01em}
+.proj{display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;padding:1.75rem 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj h3{font:700 1.4rem "Bricolage Grotesque",sans-serif;margin:0 0 .25rem}
+.proj .meta{color:var(--muted);font-size:.95rem}
+.proj p{margin:0 0 .75rem}
+.tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.75rem}
+.tags span{background:var(--chip);padding:.15rem .7rem;border-radius:2rem;font-size:.9rem}
+.edu{list-style:none;margin:0;padding:0}.edu li{display:grid;grid-template-columns:9rem 1fr;gap:1rem;padding:.9rem 0;border-top:1px solid var(--line)}.edu li:first-child{border-top:0}.edu .yr{color:var(--muted)}.edu small{display:block;color:var(--muted)}.proj ul{margin:0 0 .75rem;padding-left:1.1rem}.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.skills{list-style:none;margin:0;padding:0}
+.skills li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.skills b{font-weight:600}
+.skills span{color:var(--muted);text-align:right}
+.contact h2{font-size:clamp(2rem,6vw,3.5rem);max-width:16ch}
+.contact a.mail{font:700 clamp(1.2rem,4vw,2rem) "Bricolage Grotesque",sans-serif;color:var(--accent)}
+.links{margin-top:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+footer{padding:2rem 0;color:var(--muted);font-size:.9rem}
+@media (max-width:700px){.proj,.about,.edu li{grid-template-columns:1fr;gap:.25rem}nav a{margin-left:1rem}.hero{padding:3rem 0}}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;column-gap:3rem;align-items:start}.hero>*{grid-column:1}.hero .code{grid-column:2;grid-row:1/span 4;align-self:center}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.3rem .9rem;border:1px solid var(--line);border-radius:2rem;font-size:.95rem;font-weight:500;margin-bottom:1.5rem}
+.pill i{width:.55rem;height:.55rem;border-radius:50%;background:#1fa971}
+.code{margin:0;background:var(--ink);color:var(--bg);border-radius:.9rem;padding:1.5rem;font:500 .95rem/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-x:auto;box-shadow:0 18px 40px -22px rgba(18,51,43,.55);animation:rise .7s ease-out both}
+.code .k{color:#9db4ff}.code .s{color:#8fe0b9}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (max-width:800px){.hero{display:block}.hero .code{margin-top:2.5rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.btn{transition:transform .15s}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="logo" href="#top">Fathimath Shibla</a>
+  <nav><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="pill"><i></i>Open to full-stack developer roles</div>
+  <pre class="code" aria-label="Summary of skills"><span class="k">const</span> shibla = {
+  role: <span class="s">"Full-Stack Developer"</span>,
+  stack: [<span class="s">"MongoDB"</span>, <span class="s">"Express"</span>,
+          <span class="s">"React"</span>, <span class="s">"Node.js"</span>],
+  location: <span class="s">"Kerala, India"</span>,
+  shipped: <span class="s">"E-commerce app, live"</span>,
+  openToWork: <span class="k">true</span>
+};</pre>
+  <h1>I build full-stack apps with the MERN stack.</h1>
+  <p>I’m Fathimath, a full-stack developer from Kerala. I’ve built and deployed a complete e-commerce app, and I bring a teacher’s habit of explaining things clearly.</p>
+  <div class="btns">
+    <a class="btn primary" href="#work">See my work</a>
+    <a class="btn" href="#contact">Get in touch</a>
+    <a class="btn" href="https://github.com/Shibla93" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/fathimath-shibla" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+
+<section id="work">
+  <h2>Projects</h2>
+  <article class="proj">
+    <div><h3>Wriston Watch Store</h3><div class="meta">Full-stack e-commerce application</div></div>
+    <div>
+      <p>An end-to-end online store covering the product catalog, shopping cart, wishlist and order management, deployed for public access.</p>
+      <ul>
+        <li>Secure user authentication and session management</li>
+        <li>MongoDB schemas for products, users, carts and orders</li>
+        <li>MVC structure with Express.js routes and controllers</li>
+        <li>Fully responsive on desktop and mobile</li>
+      </ul>
+      <div class="tags"><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>EJS</span><span>JavaScript</span></div>
+      <a href="https://github.com/Shibla93" target="_blank" rel="noopener">View code on GitHub</a> &nbsp; <a href="https://wristonwatch.store/" target="_blank" rel="noopener">Live demo</a>
+    </div>
+  </article>
+  <article class="proj">
+    <div><h3>User Management System</h3><div class="meta">Full-stack MERN application</div></div>
+    <div>
+      <p>A user management app with separate user and admin sides and Redux for global state.</p>
+      <ul>
+        <li>JWT authentication and role-based authorization</li>
+        <li>Users register, log in and upload a profile image</li>
+        <li>Admins view, search, create, edit and delete users</li>
+      </ul>
+      <div class="tags"><span>React.js</span><span>Redux</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JWT</span></div>
+      <a href="https://github.com/Shibla93/userManagement">View code on GitHub</a>
+    </div>
+  </article>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div>
+      <h2>About me</h2>
+      <p>I’m a MERN developer who is strong in JavaScript, Node.js, Express.js and MongoDB, and hands-on with React.js and Redux.</p>
+      <p>Before development I worked as an educator (B.Ed, B.Sc Mathematics). That background gives me solid problem-solving and communication skills, and I learn new concepts quickly.</p>
+      <p>I’m currently learning TypeScript, SQL and PostgreSQL.</p>
+    </div>
+    <div>
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li><b>Frontend</b><span>HTML5, CSS3, React.js, Redux, EJS</span></li>
+        <li><b>Backend</b><span>Node.js, Express.js, REST APIs, MVC</span></li>
+        <li><b>Database</b><span>MongoDB</span></li>
+        <li><b>Security</b><span>JWT, role-based authorization, sessions</span></li>
+        <li><b>Tools</b><span>Git, GitHub, VS Code</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <h2>Training and education</h2>
+  <ul class="edu">
+    <li><span class="yr">2025 – Present</span><div><b>Full Stack Web Development Program, Brototype</b><small>Building apps with JavaScript, Node.js, Express.js, MongoDB and React.js, and practising data structures, REST API design and Git workflow.</small></div></li>
+    <li><span class="yr">2015</span><div><b>B.Ed, ISS Teacher Education</b><small>Perinthalmanna</small></div></li>
+    <li><span class="yr">2014</span><div><b>B.Sc Mathematics, University of Calicut</b></div></li>
+  </ul>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Let’s work together.</h2>
+  <a class="mail" href="mailto:shibisabeer@gmail.com">shibisabeer@gmail.com</a>
+  <div class="links"><a href="tel:+919744010417">+91 97440 10417</a><a href="https://github.com/Shibla93">GitHub</a><a href="https://linkedin.com/in/fathimath-shibla">LinkedIn</a></div>
+</section>
+</main>
+<footer>© 2026 Fathimath Shibla. Kerala, India.</footer>
+</div>
+</body>
+</html>
